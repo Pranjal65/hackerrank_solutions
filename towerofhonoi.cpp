@@ -1,18 +1,22 @@
 #include<iostream>
 
 using namespace std;
-
-void toh(int n,int from,int to,int aux){
+int count=0;
+int toh(int n,int from,int to,int aux){
+	
 	if(n==0){
-		return;
+		
+		return count;
 	}
+	count++;
 	toh(n-1,from,aux,to);
-	cout<<"disk move from"<<from<<"to  "<<to;
+	cout<<"disk "<<n <<" move from "<<from<<" to  "<<to<<endl;;
 	toh(n-1,aux,to,from);
+	
 }
 int main(){
 	int n;
 	cin>>n;
-	toh(n,1,3,2);
+	cout<<toh(n,1,3,2);
 	
 }
